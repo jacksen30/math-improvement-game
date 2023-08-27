@@ -33,3 +33,26 @@ input {
 form h2 {
   text-align: center;
 }
+
+/* COMPLETED GAME SCORE COMPONENT */
+
+.CompletedGameScore {
+  text-align: center;
+}
+
+.CompletedGameScore__Heading {
+  font-size: 1.5rem;
+}
+
+.CompletedGameScore__Percentage {
+  margin-top: 60px;
+  font-size: 2rem;
+}
+
+.CompletedGameScore__Correct {
+  font-size: 1.5rem;
+}
+
+.CompletedGameScore__Incorrect {
+  font-size: 1.5rem;
+}
