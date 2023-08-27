@@ -7,7 +7,7 @@ function App() {
 
   const [num1, setNum1] = useState(6);
   const [num2, setNum2] = useState(10);
-  const [userInput, setUserInput] = useState("?");
+  const [userInput, setUserInput] = useState(undefined);
   const [questionNumber, setQuestionNumber] = useState(1);
   const [qACorrect, setQACorrect] = useState(0);
   const [qAWrong, setQAWrong] = useState(0);
@@ -27,7 +27,7 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (num1 * num2 == userInput) {
+    if (num1 * num2 === userInput) {
       alert("You got the answer correct !");
       setQACorrect(qACorrect + 1);
       setQuestionNumber(questionNumber + 1);
@@ -35,7 +35,7 @@ function App() {
       let newNum2 = getRandomIntInclusive(0, 10);
       setNum1(newNum1);
       setNum2(newNum2);
-      setUserInput("?");
+      setUserInput('');
 
     } else {
       alert("You got the answer wrong, keep practicing !");
@@ -45,7 +45,7 @@ function App() {
       let newNum2 = getRandomIntInclusive(0, 10);
       setNum1(newNum1);
       setNum2(newNum2);
-      setUserInput("?");
+      setUserInput('');
     }
   }
 
@@ -55,7 +55,11 @@ function App() {
       <div>
         <form onSubmit={handleSubmit}>
           <h2>Question {questionNumber} of 10</h2>
-          <p><span>{num1}</span><span>X</span><span>{num2}</span><span>=</span><label htmlFor="userInput"></label><input id="userInput" value={userInput} onChange={(e) => setUserInput(e.target.value)} /></p>
+          <p><span>{num1}</span><span>X</span><span>{num2}</span><span>=</span></p>
+          <div>
+            <label htmlFor="userInput"></label>
+            <input id="userInput" placeholder='?' required value={userInput} onChange={(e) => setUserInput(Number(e.target.value))} />
+          </div>
           <button>Check Answer</button>
         </form>
       </div>
